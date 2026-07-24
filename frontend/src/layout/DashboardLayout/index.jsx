@@ -232,7 +232,7 @@ import styles from "./index.module.css";
 import { useRouter } from "next/router";
 import { setTokenIsThere } from "../../config/redux/reducer/authReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_URL } from "../../config/config";
+import { BASE_URL } from "../../config/config.js";
 // import { profile } from "node:console";
 
 export default function DashboardLayout({ children }) {
