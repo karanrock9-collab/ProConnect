@@ -1,0 +1,280 @@
+.viewProfileContainer {
+  padding: 2rem;
+  width: 100%;
+}
+
+.container {
+  padding: 1.3rem;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+.backDropContainer {
+  width: 100%;
+  height: 30vh;
+  background: url(https://i.pinimg.com/736x/84/a0/65/84a06571171c3215f809ab91b12f2bba.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 20px;
+}
+
+.backDropContainer img {
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -50px;
+  left: 5%;
+  text-align: center;
+}
+
+.profileContainer__details {
+  padding-top: 6.6rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.card_profileContainer > img {
+  width: 3.4rem;
+  height: auto;
+  height: 3.4rem;
+  object-fit: cover;
+}
+
+.connectBtn {
+  padding-inline: 0.8rem;
+  padding-block: 0.3rem;
+  background: rgb(3, 93, 183, 0.905);
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.connectBtn:hover {
+  background: rgb(3, 93, 183, 1);
+}
+
+.connectionButton {
+  padding-inline: 0.8rem;
+  padding-block: 0.3rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.connectionButton:has(+ span:empty) {
+  background: #6c757d;
+  color: white;
+}
+
+/* We can't use :has for most browsers, so let's just style different classes or use JS, but let's add both styles */
+.connectedButton {
+  padding-inline: 0.8rem;
+  padding-block: 0.3rem;
+  background: rgb(34, 197, 94);
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.pendingButton {
+  padding-inline: 0.8rem;
+  padding-block: 0.3rem;
+  background: rgb(234, 179, 8);
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.postCard {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+}
+
+.card_profileContainer p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+}
+
+/* .backDropContainer {
+  width: 3.4rem;
+  height: auto;
+  height: 3.4rem;
+  object-fit: cover;
+  position: relative;
+} */
+
+.workHistory {
+  margin-top: 2rem;
+}
+
+.workHistoryContainer {
+  display: flex;
+  gap: 1.4rem;
+  padding-top: 1.4rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.backDrop_overlay {
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -50px;
+  left: 5%;
+  text-align: center;
+  transform: all 0.4s;
+  cursor: pointer;
+  z-index: 4;
+  color: white;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backDrop_overlay:hover {
+  opacity: 0.8;
+  background: black;
+}
+
+.workHistoryCard {
+  min-width: fit-content;
+  padding-inline: 2.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f0f2f5;
+  transition: background 0.2s ease;
+}
+
+.downloadButton:hover {
+  background: #e0e2e5;
+}
+
+.downloadButton svg {
+  width: 1rem;
+  height: 1rem;
+  color: #333;
+}
+
+.profileContainer__details {
+  outline: none;
+  border-style: none;
+  padding-inline: 15px;
+  padding-block: 60px;
+}
+
+.nameEdit {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+}
+
+.updateBtn {
+  padding-inline: 0.8rem;
+  padding-block: 0.3rem;
+  background: rgb(3, 93, 183, 0.905);
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: fit-content;
+}
+
+.profileContainer__details > textarea {
+  outline: none;
+  border: none;
+  padding-inline: 10px;
+  padding-block: 9px;
+  font-family: "Popins" !important;
+}
+
+.addWorkButton {
+  /* border-style: dotted; */
+  padding-inline: 1.3rem;
+  background-color: white;
+  border: 1px dotted silver;
+  border-radius: 20px;
+  padding-block: 1rem;
+  cursor: pointer;
+}
+
+.commentsContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.allCommentsContainer {
+  width: 40vw;
+  height: fit-content;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.inputField {
+  padding-inline: 1.2rem;
+  padding-block: 1rem;
+  outline: none;
+  border-radius: 10px;
+  border: 1.5px solid #d0d5dd;
+  width: 100%;
+  font-size: 1rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    sans-serif;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  gap: 1.2rem;
+}
+
+.bio {
+  border: none;
+}

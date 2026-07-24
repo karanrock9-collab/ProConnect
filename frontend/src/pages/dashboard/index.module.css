@@ -1,0 +1,242 @@
+.scrollComponent {
+  display: flex;
+  justify-content: center;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.createPostContainer {
+  display: flex;
+  height: 10svh;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  gap: 1.3rem;
+  position: relative;
+  align-items: center;
+  background-color: rgb(252, 242, 242);
+  border-radius: 20px;
+}
+
+.uploadButton {
+  position: absolute;
+  right: 0;
+  bottom: -45%;
+  background-color: rgb(24, 78, 154);
+  color: white;
+  border-radius: 10px;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
+
+.userProfile {
+  border-radius: 100%;
+  width: fit-content;
+  height: 120%;
+  object-fit: cover;
+}
+
+.createPostContainer > textarea {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.Fab {
+  background-color: rgb(24, 78, 154);
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Fab:hover {
+  background-color: rgb(44, 98, 174);
+}
+
+.Fab > svg {
+  width: fit-content;
+  height: 24px;
+  color: white;
+}
+
+.textAreaOfContent {
+  width: 80%;
+  height: 70%;
+  /* flex: 1; */
+  min-height: 80px;
+  border: 1px solid silver;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-inline: 1.5rem;
+  padding-block: 0.8rem;
+  outline: none;
+  resize: vertical;
+}
+
+.singleCard {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.singleCard__profileContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 0;
+}
+
+.singleCard__profileContainer > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.singleCard__image {
+  width: 100%;
+  padding-top: 1rem;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.singleCard__image > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.optionsContainer {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  padding-block: 0.8rem;
+  border-top: none;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.singleOption__optionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #5f5f5f;
+  font-size: 0.9rem;
+}
+
+.singleOption__optionsContainer:hover {
+  background-color: #f0f2f5;
+  color: #0a66c2;
+}
+
+.singleOption__optionsContainer > svg {
+  height: 18px;
+  width: 18px;
+}
+
+.singleOption__optionsContainer > p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.commentsContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.allCommentsContainer {
+  width: 40vw;
+  height: 80vh;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  padding: 1.4rem;
+  min-width: 40svw;
+  max-width: 1120px;
+}
+
+.postCommentContainer {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.postCommentContainer > input {
+  flex: 1;
+  padding-inline: 1.5rem;
+  padding-block: 1.2rem;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  border-radius: 10px;
+}
+
+.postCommentContainer_commentBtn {
+  background-color: rgb(24, 78, 154);
+  color: white;
+  padding-inline: 1.5rem;
+  padding-block: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.postCommentContainer > input:focus {
+  border: 1px solid silver;
+}
+
+.singleComment {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.postCommentContainer_commentBtn {
+  flex: 0.1;
+  width: fit-content;
+  padding: 1.2rem;
+  background: rgb(173, 129, 48);
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .allCommentsContainer {
+    width: 90svw;
+  }
+}

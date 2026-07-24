@@ -1,0 +1,28 @@
+POST http://localhost:9080/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username"
+    "password"
+    "email"
+    "name"
+}
+
+###
+
+POST http://localhost:9080/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email"
+    "password": "a3"
+}
+
+###
+
+GET http://localhost:9080/get_user_and_profile HTTP/1.1
+Content-Type: application/json
+
+{
+    
+}

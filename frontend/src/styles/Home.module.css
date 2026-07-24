@@ -1,0 +1,96 @@
+.container {
+  font-family: "Poppins";
+  padding: 1.2rem;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-inline: 2rem;
+  height: 80vh;
+}
+
+.mainContainer__left {
+  flex: 0.5;
+}
+
+.mainContainer__right {
+  flex: 0.5;
+}
+
+.mainContainer__left > p:nth-child(1) {
+  font-size: 2.9rem;
+  background: -webkit-linear-gradient(90deg, #000000, #9d9d9d);
+  background-clip: text;
+  font-weight: bold;
+  -webkit-text-fill-color: transparent;
+  animation: animationHomePageBreathEffect 3s linear infinite;
+}
+
+@keyframes animationHomePageBreathEffect {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 50% 100%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mainContainer__left > p:nth-child(2) {
+  color: #4d4d4d;
+  font-size: 1.7rem;
+}
+
+.mainContainer__left > div.buttonJoin {
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #0a66c2 0%, #0d47a1 100%);
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.25);
+}
+
+.mainContainer__left > div.buttonJoin:hover {
+  background: linear-gradient(135deg, #0952a0 0%, #0a3d7d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 102, 194, 0.35);
+}
+
+.mainContainer__left > div.buttonJoin:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(10, 102, 194, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .mainContainer {
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 1.3rem;
+  }
+
+  .mainContainer__left {
+    flex: 1;
+    padding-top: 1.5rem;
+  }
+  .mainContainer__right {
+    flex: 1;
+  }
+
+  .mainContainer__right img {
+    width: 100%;
+  }
+}
