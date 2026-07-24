@@ -13,8 +13,33 @@ import {
   get_comments_by_post,
   increment_likes,
 } from "../controllers/user_controller.js";
+import storage from "../cloudConfig.js";
 
 const router = Router();
+const upload = multer({ storage: storage });
+
+router.post("/posts", upload.single("image"), async (req, res) => {
+  try {
+    console.log(req.file);
+
+    const newPost = new Post({
+      content: req.body.content,
+
+      // Cloudinary URL
+      image: req.file ? req.file.path : null,
+
+      user: req.user._id,
+    });
+
+    await newPost.save();
+
+    res.status(201).json(newPost);
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+});
 
 // Ensure uploads directory exists
 const uploadsDir = "./uploads";
