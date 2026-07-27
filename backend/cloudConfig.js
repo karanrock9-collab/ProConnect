@@ -12,9 +12,12 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: {
-    folder: "pro-connect",
-    allowedFormats: ["jpg", "jpeg", "png", "webp", "pdf"],
+  params: async (req, file) => {
+    return {
+      folder: "pro-connect",
+      resource_type: file.mimetype === "application/pdf" ? "auto" : "image",
+      allowed_formats: ["jpg", "jpeg", "png", "webp", "pdf"],
+    };
   },
 });
 
