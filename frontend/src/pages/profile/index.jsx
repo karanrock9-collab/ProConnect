@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import UserLayout from "../../layout/UserLayout";
 import DashboardLayout from "../../layout/DashboardLayout";
 import { getAboutUser } from "../../config/redux/action/authAction";
-import { BASE_URL, clientServer, resolveMediaUrl } from "../../config/config.js";
+import {
+  BASE_URL,
+  clientServer,
+  resolveMediaUrl,
+} from "../../config/config.js";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../../config/redux/action/postAction";

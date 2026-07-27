@@ -9,6 +9,7 @@ export const clientServer = axios.create({
 export const resolveMediaUrl = (mediaPath) => {
   if (!mediaPath) return "/profile.png";
   if (mediaPath.startsWith("http")) return mediaPath;
-  if (mediaPath === "default.jpg" || mediaPath === "default.png") return "/profile.png";
+  if (mediaPath === "default.jpg" || mediaPath === "default.png")
+    return "/profile.png";
   return `${BASE_URL}/uploads/${mediaPath}`;
 };
