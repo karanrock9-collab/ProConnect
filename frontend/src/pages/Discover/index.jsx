@@ -6,7 +6,7 @@ import UserLayout from "../../layout/UserLayout";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
-import { BASE_URL } from "../../config/config.js";
+import { BASE_URL, resolveMediaUrl } from "../../config/config.js";
 
 export default function Discoverpage() {
   const authState = useSelector((state) => state.auth);
@@ -53,7 +53,11 @@ export default function Discoverpage() {
                     className={styles.profileCard}
                   >
                     <img
-                      src={`${BASE_URL}/uploads/${profile?.userId?.profilePicture || "default.jpg"}`}
+                      src={
+                        profile?.userId?.profilePicture
+                          ? resolveMediaUrl(profile.userId.profilePicture)
+                          : "/profile.png"
+                      }
                       alt={profile?.userId?.name || "User"}
                       className={styles.profileImage}
                     />

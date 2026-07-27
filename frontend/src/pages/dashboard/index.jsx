@@ -16,7 +16,7 @@ import {
 import UserLayout from "../../layout/UserLayout";
 import DashboardLayout from "../../layout/DashboardLayout";
 import styles from "./index.module.css";
-import { BASE_URL } from "../../config/config.js";
+import { BASE_URL, resolveMediaUrl } from "../../config/config.js";
 import { resetPostId } from "../../config/redux/reducer/postReducer";
 
 export default function Dashboard() {
@@ -100,7 +100,11 @@ export default function Dashboard() {
               <img
                 className={styles.userProfile}
                 width={100}
-                src={`${BASE_URL}/uploads/${authState.user?.userId?.profilePicture || ""}`}
+                src={
+                  authState?.user?.userId?.profilePicture
+                    ? resolveMediaUrl(authState.user.userId.profilePicture)
+                    : "/profile.png"
+                }
                 alt="profile"
               />
               <textarea
@@ -172,7 +176,11 @@ export default function Dashboard() {
                       <div className={styles.singleCard__profileContainer}>
                         <img
                           className={styles.userProfile}
-                          src={`${BASE_URL}/uploads/${post.userId?.profilePicture || ""}`}
+                          src={
+                            post.userId?.profilePicture
+                              ? resolveMediaUrl(post.userId.profilePicture)
+                              : "/profile.png"
+                          }
                           alt="post user"
                         />
                         <div style={{ width: "100%" }}>
@@ -255,7 +263,7 @@ export default function Dashboard() {
                           {post.media && (
                             <div className={styles.singleCard__image}>
                               <img
-                                src={`${BASE_URL}/uploads/${post.media}`}
+                                src={resolveMediaUrl(post.media)}
                                 alt="post"
                               />
                             </div>
@@ -373,7 +381,11 @@ export default function Dashboard() {
                 .map((comment, index) => (
                   <div key={index} className={styles.singleComment}>
                     <img
-                      src={`${BASE_URL}/uploads/${comment?.userId?.profilePicture || ""}`}
+                      src={
+                        comment?.userId?.profilePicture
+                          ? resolveMediaUrl(comment.userId.profilePicture)
+                          : "/profile.png"
+                      }
                       alt=""
                     />
                     {comment?.userId && (
