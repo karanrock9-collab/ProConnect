@@ -38,7 +38,7 @@ const upload = multer({ storage });
 //   },
 // });
 
-const upload = multer({ storage: stroage });
+// const upload = multer({ storage: stroage });
 router
   .route("/upload_profile_picture")
   .post(upload.single("profile_picture"), uploadProfilePicture);

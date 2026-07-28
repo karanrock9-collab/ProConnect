@@ -32,8 +32,10 @@ const start = async () => {
     "mongodb+srv://kunalkhamankar9_db_user:z8pzPixrGvJUUQVc@connectnow.qfdlwto.mongodb.net/?appName=ConnectNow",
   );
 
-  app.listen(9080, () => {
-    console.log("Server is running on port 9080");
+  const PORT = process.env.PORT || 9080;
+
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   });
 };
 
