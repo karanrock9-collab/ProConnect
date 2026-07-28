@@ -92,12 +92,12 @@
 }
 
 .mobileNavbarView {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
   height: 6vh;
-  display: flex;
+  display: none;
   justify-content: space-around;
   background: white;
   align-items: center;
@@ -122,5 +122,12 @@
 
   .homeContainer__leftBar {
     display: none;
+  }
+
+  .mobileNavbarView {
+    display: flex;
+  }
+  .homeContainer__feedContainer {
+    padding-bottom: 8vh;
   }
 }
