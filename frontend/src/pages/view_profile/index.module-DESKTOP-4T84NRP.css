@@ -156,3 +156,14 @@
   height: 1rem;
   color: #333;
 }
+
+.profileContainer__flex {
+  display: flex;
+  gap: 0.7rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .profileContainer__flex {
+    flex-direction: column;
+  }
+}
