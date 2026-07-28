@@ -18,11 +18,13 @@ export const createPost = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
+    const mediaUrl = req.file?.path || req.file?.secure_url || "";
+
     const post = new Post({
       userId: user._id,
       body: req.body.body,
-      media: req.file != undefined ? req.file.filename : "",
-      fileType: req.file != undefined ? req.file.mimetype.split("/")[1] : "",
+      media: mediaUrl,
+      fileType: req.file ? req.file.mimetype.split("/")[1] : "",
     });
 
     await post.save();
@@ -30,7 +32,7 @@ export const createPost = async (req, res) => {
     return res.status(200).json({
       message: "Post Created Successfully",
       post: post,
-      filename: req.file?.filename || "no file",
+      mediaUrl: mediaUrl || "no file",
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });

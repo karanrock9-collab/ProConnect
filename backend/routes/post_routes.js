@@ -14,6 +14,19 @@ import {
   increment_likes,
 } from "../controllers/user_controller.js";
 import { storage } from "../cloudConfig.js";
+import Image from 'next/image'
+
+
+export default function Page() {
+  return (
+    <Image
+      src="/profile.png"
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+  )
+}
 
 const router = Router();
 const upload = multer({ storage });
