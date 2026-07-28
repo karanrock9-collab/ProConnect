@@ -176,12 +176,11 @@ export default function Dashboard() {
                       <div className={styles.singleCard__profileContainer}>
                         <img
                           className={styles.userProfile}
-                          // src={
-                          //   post.userId?.profilePicture
-                          //     ? resolveMediaUrl(post.userId.profilePicture)
-                          //     : "/profile.png"
-                          // }
-                          src={post.media}
+                          src={
+                            post.userId?.profilePicture
+                              ? resolveMediaUrl(post.userId.profilePicture)
+                              : "/profile.png"
+                          }
                           alt="post user"
                         />
                         <div style={{ width: "100%" }}>
@@ -263,7 +262,10 @@ export default function Dashboard() {
 
                           {post.media && (
                             <div className={styles.singleCard__image}>
-                              <img src={post.media} alt="post" />
+                              <img
+                                src={resolveMediaUrl(post.media)}
+                                alt="post"
+                              />
                             </div>
                           )}
 

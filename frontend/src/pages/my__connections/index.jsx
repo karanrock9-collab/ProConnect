@@ -7,7 +7,7 @@ import {
   getMyConnectionsRequests,
   whatAreMyConnectionRequests,
 } from "../../config/redux/action/authAction";
-import { BASE_URL } from "../../config/config.js";
+import { BASE_URL, resolveMediaUrl } from "../../config/config.js";
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
 
@@ -88,8 +88,7 @@ export default function MyConnectionsPage() {
                       <div className={styles.userInfoContainer}>
                         <div className={styles.profilePicture}>
                           <img
-                            // src={`${BASE_URL}/uploads/${profilePic}`}
-                            src={user.profilePicture}
+                            src={resolveMediaUrl(user.profilePicture)}
                             alt={userName}
                           />
                         </div>
@@ -161,8 +160,7 @@ export default function MyConnectionsPage() {
                       <div className={styles.userInfoContainer}>
                         <div className={styles.profilePicture}>
                           <img
-                            // src={`${BASE_URL}/uploads/${profilePic}`}
-                            src={user.profilePicture}
+                            src={resolveMediaUrl(user.profilePicture)}
                             alt={userName}
                           />
                         </div>

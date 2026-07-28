@@ -53,7 +53,7 @@ export default function Discoverpage() {
                     className={styles.profileCard}
                   >
                     <img
-                      src={user.profilePicture}
+                      src={resolveMediaUrl(profile.userId?.profilePicture)}
                       alt={profile?.userId?.name || "User"}
                       className={styles.profileImage}
                     />

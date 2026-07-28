@@ -131,7 +131,7 @@ export default function profilePage() {
                 width={100}
                 src={
                   authState?.user?.userId?.profilePicture
-                    ? `${BASE_URL}/uploads/${authState.user.userId.profilePicture}`
+                    ? resolveMediaUrl(authState.user.userId.profilePicture)
                     : "/profile.png"
                 }
                 alt="profile"

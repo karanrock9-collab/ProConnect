@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_URL, clientServer } from "../../config/config.js";
+import {
+  BASE_URL,
+  clientServer,
+  resolveMediaUrl,
+} from "../../config/config.js";
 import UserLayout from "../../layout/UserLayout";
 import DashboardLayout from "../../layout/DashboardLayout";
 import { getAllPosts } from "../../config/redux/action/postAction";
@@ -259,10 +263,7 @@ export default function ViewProfilePage({ userProfile }) {
                       <div className={styles.card}>
                         <div className={styles.card_profileContainer}>
                           {post?.media ? (
-                            <img
-                              src={`${BASE_URL}/uploads/${post.media}`}
-                              alt="post"
-                            />
+                            <img src={resolveMediaUrl(post.media)} alt="post" />
                           ) : null}
                           <p>{post?.body || ""}</p>
                         </div>
