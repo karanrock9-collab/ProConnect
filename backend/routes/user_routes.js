@@ -13,7 +13,7 @@ import {
   whatAreMyConnectionRequests,
 } from "../controllers/user_controller.js";
 import multer from "multer";
-import fs from "fs";
+import { storage } from "../cloudConfig.js";
 import {
   getUserAndProfile,
   uploadProfilePicture,
@@ -21,20 +21,22 @@ import {
 
 const router = Router();
 
-// Ensure uploads directory exists
-const uploadsDir = "./uploads";
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+const upload = multer({ storage });
 
-const stroage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
+// Ensure uploads directory exists
+// const uploadsDir = "./uploads";
+// if (!fs.existsSync(uploadsDir)) {
+//   fs.mkdirSync(uploadsDir, { recursive: true });
+// }
+
+// const stroage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, uploadsDir);
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   },
+// });
 
 const upload = multer({ storage: stroage });
 router
