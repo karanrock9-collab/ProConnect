@@ -23,10 +23,18 @@ const convertUserDataTOPDF = async (userdata) => {
 
     // Only add image if profile picture exists
     if (userdata?.userId?.profilePicture) {
-      doc.image(`./uploads/${userdata.userId.profilePicture}`, {
-        align: "center",
-        width: 100,
-      });
+      try {
+        const profilePic = userdata.userId.profilePicture;
+        const imageSrc = profilePic.startsWith("http")
+          ? profilePic
+          : `./uploads/${profilePic}`;
+        doc.image(imageSrc, {
+          align: "center",
+          width: 100,
+        });
+      } catch (imgErr) {
+        console.log("Could not embed profile picture in PDF:", imgErr.message);
+      }
     }
     doc.fontSize(14).text(`Name: ${userdata?.userId?.name || "N/A"}`);
     doc.fontSize(14).text(`Username: ${userdata?.userId?.username || "N/A"}`);

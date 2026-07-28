@@ -18,11 +18,18 @@ export const createPost = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
+    let mediaUrl = "";
+    let fileType = "";
+    if (req.file) {
+      mediaUrl = req.file.secure_url || req.file.path || req.file.filename || "";
+      fileType = req.file.mimetype ? req.file.mimetype.split("/")[1] : "";
+    }
+
     const post = new Post({
       userId: user._id,
       body: req.body.body,
-      media: req.file != undefined ? req.file.filename : "",
-      fileType: req.file != undefined ? req.file.mimetype.split("/")[1] : "",
+      media: mediaUrl,
+      fileType: fileType,
     });
 
     await post.save();
@@ -30,7 +37,7 @@ export const createPost = async (req, res) => {
     return res.status(200).json({
       message: "Post Created Successfully",
       post: post,
-      filename: req.file?.filename || "no file",
+      filename: mediaUrl || "no file",
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
