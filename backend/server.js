@@ -14,16 +14,16 @@ const app = express();
 
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
-  console.log('Headers:', req.headers);
-  console.log('Query:', req.query);
-  console.log('Body:', req.body);
+  console.log("Headers:", req.headers);
+  console.log("Query:", req.query);
+  console.log("Body:", req.body);
   next();
 });
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/uploads", express.static("uploads"));
+// app.use("/uploads", express.static("uploads"));
 app.use(postRoutes);
 app.use(userRoutes);
 

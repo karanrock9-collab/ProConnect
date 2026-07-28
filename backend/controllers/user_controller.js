@@ -120,17 +120,25 @@ export const uploadProfilePicture = async (req, res) => {
   const { token } = req.body;
 
   try {
-    const user = await User.findOne({ token: token });
+    const user = await User.findOne({ token });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    user.profilePicture = req.file.filename;
+    if (!req.file) {
+      return res.status(400).json({ message: "No image uploaded" });
+    }
+
+    // Save Cloudinary URL
+    user.profilePicture = req.file.path;
 
     await user.save();
 
-    return res.json({ message: "Profile Picture Updated" });
+    return res.json({
+      message: "Profile Picture Updated",
+      image: req.file.path,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
